@@ -64,6 +64,12 @@ app.get('/search', async (req, res) => {
                 break;
         }
 
+        // 不要な要素を削除
+        if (site === 'oxford') {
+            $('#entryContent .social-buttons').remove();
+            $('#entryContent .promotion').remove();
+        }
+
         res.send(result || 'No results found');
     } catch (error) {
         console.error(`Error fetching data from ${site}:`, error.message);
