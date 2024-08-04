@@ -51,4 +51,23 @@
         </div>
     </div>
     <script>
-        async function fetch
+        async function fetchDictionaryData(query, site) {
+            try {
+                const response = await fetch(`/search?query=${query}&site=${site}`);
+                const data = await response.text();
+                document.getElementById(site).innerHTML = data;
+            } catch (error) {
+                document.getElementById(site).innerHTML = `Error fetching data: ${error.message}`;
+            }
+        }
+
+        function searchWord() {
+            const query = document.getElementById('query').value;
+            fetchDictionaryData(query, 'oxford');
+            fetchDictionaryData(query, 'cambridge');
+            document.getElementById('thesaurus').src = `https://www.thesaurus.com/browse/${query}`;
+            fetchDictionaryData(query, 'alc');
+        }
+    </script>
+</body>
+</html>
