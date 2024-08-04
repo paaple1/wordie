@@ -5,48 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>英単語検索ツール</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .result-box {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="text-center">英単語検索ツール</h1>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="query" placeholder="Search for a word">
-            <div class="input-group-append">
-                <button class="btn btn-primary" onclick="searchWord()">検索</button>
-            </div>
+<body>
+    <div class="container">
+        <h1>英単語検索ツール</h1>
+        <div class="search-box">
+            <input type="text" id="query" placeholder="Search for a word" class="form-control">
+            <button onclick="searchWord()" class="btn btn-primary mt-2">検索</button>
         </div>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="results">
+            <div class="result-box" id="oxford-box">
                 <h2>Oxford Learner's Dictionaries</h2>
-                <div id="oxford" class="result-box">Loading...</div>
+                <div id="oxford">Loading...</div>
             </div>
-            <div class="col-md-6">
+            <div class="result-box" id="cambridge-box">
                 <h2>Cambridge Dictionary</h2>
-                <div id="cambridge" class="result-box">Loading...</div>
+                <div id="cambridge">Loading...</div>
             </div>
-            <div class="col-md-6 mt-3">
+            <div class="result-box" id="thesaurus-box">
                 <h2>Thesaurus</h2>
-                <iframe id="thesaurus" src="" class="w-100" style="height: 500px;"></iframe>
+                <iframe id="thesaurus" src=""></iframe>
             </div>
-            <div class="col-md-6 mt-3">
+            <div class="result-box" id="alc-box">
                 <h2>ALC</h2>
-                <div id="alc" class="result-box">Loading...</div>
+                <div id="alc">Loading...</div>
             </div>
         </div>
     </div>
