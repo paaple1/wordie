@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英単語検索ツール</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-box {
+            margin: 20px;
+        }
+        .results {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .result-box {
+            flex: 1;
+            margin: 10px;
+            min-width: 300px;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>英単語検索ツール</h1>
+        <div class="search-box">
+            <input type="text" id="query" placeholder="Search for a word">
+            <button onclick="searchWord()">検索</button>
+        </div>
+        <div class="results">
+            <div class="result-box">
+                <h2>Oxford Learner's Dictionaries</h2>
+                <div id="oxford">Loading...</div>
+            </div>
+            <div class="result-box">
+                <h2>Cambridge Dictionary</h2>
+                <div id="cambridge">Loading...</div>
+            </div>
+            <div class="result-box">
+                <h2>Thesaurus</h2>
+                <iframe id="thesaurus" src=""></iframe>
+            </div>
+            <div class="result-box">
+                <h2>ALC</h2>
+                <div id="alc">Loading...</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function fetchDictionaryData(query, site) {
+            try {
+                const response = await fetch(`/search?query=${query}&site=${site}`);
+                const data = await response.text();
+                document.getElementById(site).innerHTML = data;
+            } catch (error) {
+                document.getElementById(site).innerHTML = `Error fetching data: ${error.message}`;
+            }
+        }
+
+        function searchWord() {
+            const query = document.getElementById('query').value;
+            fetchDictionaryData(query, 'oxford');
+            fetchDictionaryData(query, 'cambridge');
+            document.getElementById('thesaurus').src = `https://www.thesaurus.com/browse/${query}`;
+            fetchDictionaryData(query, 'alc');
+        }
+    </script>
+</body>
+</html>
