@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>英単語検索ツール</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Wordie</title>
+    <link rel="icon" href="path/to/your/favicon.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>英単語検索ツール</h1>
+        <h1>英単語検索ツール - Wordie</h1>
         <div class="search-box">
-            <input type="text" id="query" placeholder="Search for a word" class="form-control">
-            <button onclick="searchWord()" class="btn btn-primary mt-2">検索</button>
+            <input type="text" id="query" placeholder="Search for a word">
+            <button onclick="searchWord()">検索</button>
         </div>
         <div class="results">
-            <div class="result-box" id="oxford-box">
+            <div class="result-box">
                 <h2>Oxford Learner's Dictionaries</h2>
                 <div id="oxford">Loading...</div>
             </div>
-            <div class="result-box" id="cambridge-box">
+            <div class="result-box">
                 <h2>Cambridge Dictionary</h2>
                 <div id="cambridge">Loading...</div>
             </div>
-            <div class="result-box" id="thesaurus-box">
+            <div class="result-box">
                 <h2>Thesaurus</h2>
                 <iframe id="thesaurus" src=""></iframe>
             </div>
-            <div class="result-box" id="alc-box">
+            <div class="result-box">
                 <h2>ALC</h2>
                 <div id="alc">Loading...</div>
             </div>
