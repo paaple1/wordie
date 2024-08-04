@@ -50,16 +50,16 @@ app.get('/search', async (req, res) => {
 
         switch (site) {
             case 'oxford':
-                result = $('#entryContent').html();
+                result = $('#entryContent .senses_wrapper').first().html();
                 break;
             case 'ldoce':
-                result = $('.dictentry').html();
+                result = $('.dictentry .sense').first().html();
                 break;
             case 'cambridge':
-                result = $('.entry-body__el').html();
+                result = $('.entry-body__el .def-block').first().html();
                 break;
             case 'alc':
-                result = $('#resultsList').html();
+                result = $('#resultsList .result').first().html();
                 break;
         }
 
