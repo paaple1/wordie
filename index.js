@@ -51,16 +51,16 @@ app.get('/search', async (req, res) => {
 
         switch (site) {
             case 'oxford':
-                result = $('#entryContent .senses_wrapper').first().html();
+                result = $('#entryContent').html() || $('.senses_wrapper').html();
                 break;
             case 'ldoce':
-                result = $('.dictentry .sense').first().html();
+                result = $('.dictentry').html() || $('.sense').html();
                 break;
             case 'cambridge':
-                result = $('.entry-body__el .def-block').first().html();
+                result = $('.entry-body__el').html() || $('.def-block').html();
                 break;
             case 'alc':
-                result = $('#resultsList .result').first().html();
+                result = $('#resultsList').html() || $('.result').html();
                 break;
         }
 
